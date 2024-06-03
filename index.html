@@ -7,8 +7,10 @@
     <title>Divesh Chowdary Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background: #f5f5f5;
@@ -21,17 +23,7 @@
             padding: 100px 0;
             text-align: center;
             position: relative;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            z-index: 2;
-            position: relative;
-        }
-        header p {
-            font-size: 1.2em;
-            z-index: 2;
-            position: relative;
+            overflow: hidden;
         }
         header::before {
             content: "";
@@ -40,8 +32,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            z-index: 2;
+            position: relative;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+            font-size: 1.5em;
+            z-index: 2;
+            position: relative;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         .social-icons {
             text-align: center;
@@ -54,27 +59,36 @@
             text-decoration: none;
             color: white;
             font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
         }
         .social-icons i {
             padding: 10px;
-            background: #333;
+            background: #ff7e5f;
             border-radius: 50%;
         }
         nav {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: #ff7e5f;
+            color: white;
             text-align: center;
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #333;
+            color: white;
             font-weight: bold;
             font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #feb47b;
         }
         section {
             padding: 60px 20px;
@@ -88,19 +102,31 @@
             background: white;
             padding: 20px;
             margin-bottom: 20px;
+            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .about h2, .contact h2, .resume h2, .projects h2 {
             margin-top: 0;
+            font-size: 2em;
+            color: #ff7e5f;
         }
         .projects .project {
             margin-bottom: 20px;
+        }
+        .project h3 {
+            font-size: 1.5em;
+            color: #ff7e5f;
+        }
+        .project p {
+            font-size: 1em;
+            line-height: 1.6;
         }
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
+            font-size: 1em;
         }
     </style>
 </head>
@@ -135,6 +161,21 @@
         <h2>Resume</h2>
         <h3>Experience</h3>
         <ul>
+            <li>
+                <h4>Software Intern at NVIDIA</h4>
+                <p>May 2024 - Present</p>
+                <ul>
+                    <li>Working in the cloud networks team</li>
+                    <li>Technologies involved: GO, networks, distributed systems, Prometheus, OVN, SDN</li>
+                </ul>
+            </li>
+            <li>
+                <h4>Research Assistant at USC</h4>
+                <p>Jan 2024 - Feb 2024</p>
+                <ul>
+                    <li>Worked on centralized admission control at the datacenter</li>
+                </ul>
+            </li>
             <li>
                 <h4>Member of Technical Staff at Nutanix</h4>
                 <p>2022 JUL - 2023 AUG</p>
@@ -180,7 +221,7 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2>Projects</h2>
+        <h2>Projects (Mostly Not Up to Date Check github for most recent public projects)</h2>
         <div class="project">
             <h3>Live Hate Prediction on Tweets</h3>
             <p>Utilized various machine learning algorithms to predict and classify live tweets from the Twitter API into positive, neutral, or negative sentiments. Scaled to predict up to 10^6 tweets per minute with an average accuracy rate of 96%.</p>
@@ -211,4 +252,25 @@
         <h2>Contact</h2>
         <p>Email: <a href="mailto:divesh.chowdary@gmail.com">divesh.chowdary@gmail.com</a></p>
         <p>Phone: +1 (213) 691-9849</p>
-        <
+        <p>Location: LA, California</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Divesh Chowdary. All rights reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
